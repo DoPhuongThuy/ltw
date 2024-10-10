@@ -1,0 +1,184 @@
+:root {
+    /* Button Variables */
+    --button-padding: 15px;
+    --button-border-radius: 10px;
+    --button-margin: 15px;
+    --button-color: white;
+    --button-background-start: #FF6347;
+    --button-background-end: #CD5C5C;
+    --button-width: 100%;
+    --button-font-size: 16px;
+    --button-transition-duration: 0.3s;
+    --button-animation-fade-duration: 1s;
+    --button-animation-gradient-duration: 3s;
+    --button-box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    /* General Variables */
+    --link-color: #FF6347;
+    --link-color-hover: #CD5C5C;
+    --body-bg-color: #f3f3f3;
+    --input-border-color: #ddd;
+    --input-border-radius: 5px;
+    --input-padding: 10px;
+    --input-animation-duration: 1s;
+}
+
+button {
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    margin: var(--button-margin) 0;
+    border: none;
+    color: var(--button-color);
+    cursor: pointer;
+    background: linear-gradient(270deg, var(--button-background-start), var(--button-background-end));
+    background-size: 200% 200%;
+    width: var(--button-width);
+    font-size: var(--button-font-size);
+    transition: background-position var(--button-transition-duration) ease, box-shadow var(--button-transition-duration) ease;
+    animation: buttonFadeIn var(--button-animation-fade-duration) ease-in-out, gradientAnimation var(--button-animation-gradient-duration) ease infinite;
+}
+
+button:hover {
+    background-position: 100% 50%;
+    box-shadow: var(--button-box-shadow-hover);
+}
+
+button:focus {
+    outline: none;
+}
+
+@keyframes buttonFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-color-hover);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: var(--body-bg-color);
+    flex-direction: column;
+    margin: 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.input-custom {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: var(--input-padding);
+    box-sizing: border-box;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    transition: border-color var(--button-transition-duration) ease;
+    animation: inputFadeIn var(--input-animation-duration) ease-in-out;
+}
+
+.input-custom:focus {
+    border-color: var(--button-background-start);
+    outline: none;
+}
+
+.input-custom:hover {
+    border-color: var(--button-background-start);
+}
+
+@keyframes inputFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.input-custom {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: var(--input-padding);
+    box-sizing: border-box;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    transition: border-color var(--button-transition-duration) ease;
+    animation: inputFadeIn var(--input-animation-duration) ease-in-out;
+}
+
+.input-custom:focus {
+    border-color: var(--button-background-start);
+    outline: none;
+}
+
+.input-custom:hover {
+    border-color: var(--button-background-start);
+}
+
+input {
+    composes: input-custom;
+}
+
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    animation: checkboxGroupFadeIn 1s ease-in-out;
+}
+
+@keyframes checkboxGroupFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.checkbox-group label {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
